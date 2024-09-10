@@ -1,0 +1,1 @@
+# Default resources for CNVizard
