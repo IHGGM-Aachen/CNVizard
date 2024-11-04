@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include setup.py
+include default.env
+include cnvizard/resources/*
+include cnvizard/resources/candidate_lists/*
+include cnvizard/resources/references/*
