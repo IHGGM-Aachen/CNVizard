@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="cnvizard",
-    version="0.3",
+    version="0.3.1",
     description="A tool for visualizing germline copy number variants",
     long_description=long_description,
     long_description_content_type="text/markdown",  # If your README is in Markdown format
