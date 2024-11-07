@@ -59,9 +59,9 @@ class vcfMerger:
         vcf_df = pd.read_csv(vcf_file_path, sep ="\t", comment='#', names = header,compression="gzip")
         return vcf_df
     
-    def explode_df(df:pd.DataFrame) -> pd.DataFrame:
+    def explode_df(self, df: pd.DataFrame) -> pd.DataFrame:
         """
-        Function which splits the gene column of a pandas Dataframe on a comme and subsequently explodes the column
+        Function which splits the gene column of a pandas DataFrame on a comma and subsequently explodes the column
         Input Arguments:
             df (pandas DataFrame) : DataFrame to be exploded
         Output Arguments: 
@@ -72,15 +72,15 @@ class vcfMerger:
         df['gene'] = df['gene'].str.split('_')
         df['exon'] = df['gene'].str[1]
         df['gene'] = df['gene'].str[0]
-        
+
         df.loc[df['log2'] <= -1.1, 'call'] = int(0)
         df.loc[(df['log2'] <= -0.4) & (df['log2'] > -1.1), 'call'] = int(1)
         df.loc[(df['log2'] <= 0.3) & (df['log2'] > -0.4), 'call'] = int(2)
         df.loc[df['log2'] > 0.3, 'call'] = int(3)
         df.loc[df['log2'] > 1.8, 'call'] = int(4)
-        
-        df.loc[:, 'squaredvalue'] = 2**df['log2']
-        
+
+        df.loc[:, 'squaredvalue'] = 2 ** df['log2']
+
         return df 
     
     def prepare_filter_for_consecutive_cnvs(self,df:pd.DataFrame) -> pd.DataFrame :
