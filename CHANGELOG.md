@@ -15,3 +15,9 @@ All notable changes to this project will be documented in this file.
 - Flexible environment setup with optional `.env` file for configuration.
 - IGV outlink configuration support for genome browser integration.
 - Basic cross-analysis functionality utilizing dbVar.
+
+## [0.3.1] - 07/11/2024
+
+### Hotfix for vcf_Merger
+
+- Fixed a `TypeError` in within `vcfMerger` class
